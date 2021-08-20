@@ -1,6 +1,20 @@
 # UML: Guia de Ejercicios
 
+## Indice
+
+- [Ejercicio 1](#ejercicio-1)
+- [Ejercicio 2](#ejercicio-2)
+- [Ejercicio 3](#ejercicio-3)
+- [Ejercicio 4](#ejercicio-4)
+- [Ejercicio 5](#ejercicio-5)
+
+**NOTA**
+
+Los ejercicios están ordenados por complejidad ascendente.
+
 ## Ejercicio 1
+
+[Volver al inidice](#indice)
 
 | Patron    | Referencia                                       | Complejidad |
 |-----------|--------------------------------------------------|-------------|
@@ -150,6 +164,8 @@ int main() {
 
 ## Ejercicio 2
 
+[Volver al inidice](#indice)
+
 | Patron  | Referencia                                     | Complejidad |
 |---------|------------------------------------------------|-------------|
 | *State* | https://refactoring.guru/design-patterns/state | 1           |
@@ -285,6 +301,8 @@ int main() {
 
 ## Ejercicio 3
 
+[Volver al inidice](#indice)
+
 | Patron                    | Referencia                                                       | Complejidad |
 |---------------------------|------------------------------------------------------------------|:-----------:|
 | *Chain of responsability* | https://refactoring.guru/design-patterns/chain-of-responsibility | 2           |
@@ -414,6 +432,8 @@ int main() {
 
 
 ## Ejercicio 4
+
+[Volver al inidice](#indice)
 
 | Patron      | Referencia                                         | Complejidad |
 |-------------|----------------------------------------------------|:-----------:|
@@ -610,6 +630,8 @@ int main() {
 ```
 
 ## Ejercicio 5
+
+[Volver al inidice](#indice)
 
 | Patron  | Referencia                                     | Complejidad |
 |---------|------------------------------------------------|:-----------:|
