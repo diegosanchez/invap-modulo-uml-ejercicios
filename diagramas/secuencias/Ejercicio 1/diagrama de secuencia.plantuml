@@ -1,0 +1,42 @@
+@startuml
+
+title Patron command - Secuencia main\n
+
+actor main
+
+create "invoker1: Invoker"
+main -> "invoker1: Invoker": <<constructor>>
+
+create "onstart: SimpleCommand"
+main -> "onstart: SimpleCommand": SimpleCommand("Say Hi!")
+
+main -> "invoker1: Invoker": SetOnStart(onstart)
+
+create "receiver1: Receiver"
+main -> "receiver1: Receiver": <<constructor>>
+
+create "onfinish: ComplexCommand"
+main -> "onfinish: ComplexCommand": ComplexCommand(receiver1, "Send email", "Save report"))
+
+main -> "invoker1: Invoker": SetOnFinish(onfinish)
+main -> "invoker1: Invoker": DoSomethingImportant()
+
+' activate 
+activate "invoker1: Invoker"
+        alt this->on_start_ != NULL
+                "invoker1: Invoker" -> "onstart: SimpleCommand": Execute()
+        end
+        alt this->on_finish_ != NULL
+                ' sender -> receiver : message
+                "invoker1: Invoker" -> "onfinish: ComplexCommand": Execute()
+                "onfinish: ComplexCommand" -> "receiver1: Receiver": DoSomething(this->a_)
+                "onfinish: ComplexCommand" -> "receiver1: Receiver": DoSomethingElse(this->b_)
+        end
+
+        return   
+
+deactivate "invoker1: Invoker"
+
+main -> "invoker1: Invoker" !! : delete
+main -> "receiver1: Receiver" !! : delete
+@enduml
