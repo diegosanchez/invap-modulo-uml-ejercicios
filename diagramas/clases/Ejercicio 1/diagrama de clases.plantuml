@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title PatronCommand\n 
+abstract class Command {
+    + ~Command()
+    + {abstract} Execute()
+}
+
+class SimpleCommand {
+    - pay_load_: String
+
+    + SimpleCommand(pay_load: String)
+    + Execute()
+}
+Command <|--SimpleCommand
+
+class Receiver{
+    + DoSomething(a:String &)
+    + DoSomethingElse(b: String &)
+}
+
+class ComplexCommand{
+    - a_: String
+    - b_: String
+
+    + ComplexCommand(receiver: Receiver *, a: String, b: String)
+    + Execute()
+}
+Command <|--ComplexCommand
+ComplexCommand o-- "1" Receiver: " - receiver_"
+
+class Invoker{
+
+    + ~Invoker()
+    + SetOnStart(command: Command *)
+    + SetOnFinish(command: Command *)
+    + DoSomethingImportant()
+}
+Invoker o- "1" Command: " - on_start_\n "
+Invoker o- "1" Command: " - on_finish_\n "
+
+@enduml
